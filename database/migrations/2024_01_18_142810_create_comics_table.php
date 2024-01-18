@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('thumb');
-            $table->decimal('price', $precision = 2, $scale = 2)->unsigned();
+            $table->decimal('price', 6, 2)->unsigned();
             $table->string('series');
             $table->date('sale_date');
             $table->string('type');
