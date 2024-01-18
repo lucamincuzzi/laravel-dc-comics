@@ -22,7 +22,7 @@ class ComicsTableSeeder extends Seeder
             $comic->thumb = 'my-comic-image';
             $comic->price = $faker->randomFloat(2, 0, 50);
             $comic->series = $faker->word();
-            $comic->sale_date = $faker->dateTimeBetween('-20 years', '0 day');
+            $comic->sale_date = $faker->dateTimeBetween('-20 years', '-1 week');
             $comic->type = $faker->word();
     
             $comic->save();
