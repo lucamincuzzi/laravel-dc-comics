@@ -2,7 +2,7 @@
 
 @section('content')
     <table class="table my-2">
-        <h1>Fumetti</h1>
+        <h1 class="ms-5 mt-4">Fumetti</h1>
         <div class="text-end">
             <a class="btn btn-primary me-5" href="{{ route('comics.create') }}">Aggiungi un fumetto</a>
         </div>

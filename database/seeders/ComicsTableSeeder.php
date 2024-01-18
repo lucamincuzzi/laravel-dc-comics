@@ -16,16 +16,18 @@ class ComicsTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        for ($i=0; $i < 20; $i++) { 
+        $rows = config('comics');
+
+        foreach ($rows as $row) {
             $comic = new Comic();
-            $comic->title = $faker->word();
-            $comic->description = $faker->paragraph();
-            $comic->thumb = 'my-comic-image';
-            $comic->price = $faker->randomFloat(2, 0, 50);
-            $comic->series = $faker->word();
-            $comic->sale_date = $faker->dateTimeBetween('-20 years', '-1 week');
-            $comic->type = $faker->word();
-    
+            $comic->title = $row['title'];
+            $comic->description = $row['description'];
+            $comic->thumb = $row['thumb'];
+            $comic->price = $row['price'];
+            $comic->series = $row['series'];
+            $comic->sale_date = $row['sale_date'];
+            $comic->type = $row['type'];
+
             $comic->save();
         }
     }
