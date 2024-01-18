@@ -19,6 +19,7 @@ class ComicsTableSeeder extends Seeder
         for ($i=0; $i < 20; $i++) { 
             $comic = new Comic();
             $comic->title = $faker->word();
+            $comic->description = $faker->paragraph();
             $comic->thumb = 'my-comic-image';
             $comic->price = $faker->randomFloat(2, 0, 50);
             $comic->series = $faker->word();

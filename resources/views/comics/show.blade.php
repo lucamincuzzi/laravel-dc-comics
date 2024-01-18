@@ -4,6 +4,8 @@
     <div class="container my-4 text-center">
         <h2>{{ $comic->title }}</h2>
         <div>{{ $comic->thumb }}</div>
+        <p class="mt-4"><strong>Sinossi:</strong></p>
+        <div><td>{{ $comic->description }}</td></div>
         <hr>
         <ul>
             <li><strong>Prezzo: </strong>{{ $comic->price }}$</li>
