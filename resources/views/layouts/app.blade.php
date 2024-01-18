@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,11 +10,13 @@
     {{-- Importare la parte di js e sass tramite vite --}}
     @vite('resources/js/app.js')
 </head>
-<body>
 
+<body>
+    @include('partials.header')
     <main>
         @yield('content')
     </main>
-    
+    @include('partials.footer')
 </body>
+
 </html>
