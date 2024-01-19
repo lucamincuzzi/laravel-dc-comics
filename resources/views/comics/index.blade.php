@@ -16,7 +16,7 @@
                     <th scope="col">Serie</th>
                     <th scope="col">Data uscita</th>
                     <th scope="col">Genere</th>
-                    <th scope="col">Azioni</th>
+                    <th class="text-center" scope="col">Azioni</th>
                 </tr>
             </thead>
             <tbody>
@@ -29,9 +29,16 @@
                         <td>{{ $comic->series }}</td>
                         <td>{{ $comic->sale_date }}</td>
                         <td>{{ $comic->type }}</td>
-                        <td><a class="btn btn-success"
-                                href="{{ route('comics.show', ['comic' => $comic->id]) }}">Dettagli</a></td>
-                        <td><a class="btn btn-warning" href="{{ route('comics.edit', ['comic' => $comic->id]) }}">Modifica</a></td>
+                        <td class="w-50">
+                            <a class="btn btn-success"
+                                    href="{{ route('comics.show', ['comic' => $comic->id]) }}">Dettagli</a>
+                            <a class="btn btn-warning" href="{{ route('comics.edit', ['comic' => $comic->id]) }}">Modifica</a>
+                            <form action="{{ route('comics.destroy', ['comic' => $comic->id]) }}" class="d-inline-block" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger"">Elimina</button>
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>
