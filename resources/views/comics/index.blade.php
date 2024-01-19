@@ -31,6 +31,7 @@
                         <td>{{ $comic->type }}</td>
                         <td><a class="btn btn-success"
                                 href="{{ route('comics.show', ['comic' => $comic->id]) }}">Dettagli</a></td>
+                        <td><a class="btn btn-warning" href="{{ route('comics.edit', ['comic' => $comic->id]) }}">Modifica</a></td>
                     </tr>
                 @endforeach
             </tbody>
