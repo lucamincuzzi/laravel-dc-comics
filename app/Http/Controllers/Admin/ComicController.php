@@ -85,7 +85,7 @@ class ComicController extends Controller
         $comic_to_update = Comic::findOrFail($id);
         $comic_to_update->update($form_data);
 
-        return redirect()->route('comics.show', ["comic" => $comic_to_update->id]);
+        return redirect()->route('comics.show', ["comic" => $comic_to_update->id])->with('edit_message', 'Le modifiche sono state applicate.');
     }
 
     /**
@@ -99,6 +99,6 @@ class ComicController extends Controller
         $comic_to_delete = Comic::findOrFail($id);
         $comic_to_delete->delete();
 
-        return redirect()->route('comics.index');
+        return redirect()->route('comics.index')->with('delete_message', $comic_to_delete->title);
     }
 }

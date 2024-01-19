@@ -7,6 +7,14 @@
             <div class="text-end">
                 <a class="btn btn-primary me-5" href="{{ route('comics.create') }}">Aggiungi un fumetto</a>
             </div>
+            {{-- Messaggio di avvenuta eliminazione di un elemento --}}
+            @if (session('delete_message'))
+                <div class="container my-3 w-50 text-center alert alert-success">
+                    Elemento <span class="p-1 rounded bg-danger text-white">{{ session('delete_message') }}</span> <span
+                        class="text-danger">eliminato</span> con successo.
+                </div>
+            @endif
+            {{-- /Messaggio di avvenuta eliminazione di un elemento --}}
             <thead>
                 <tr>
                     <th scope="col">id</th>
@@ -31,9 +39,11 @@
                         <td>{{ $comic->type }}</td>
                         <td class="w-50">
                             <a class="btn btn-success"
-                                    href="{{ route('comics.show', ['comic' => $comic->id]) }}">Dettagli</a>
-                            <a class="btn btn-warning" href="{{ route('comics.edit', ['comic' => $comic->id]) }}">Modifica</a>
-                            <form action="{{ route('comics.destroy', ['comic' => $comic->id]) }}" class="d-inline-block" method="POST">
+                                href="{{ route('comics.show', ['comic' => $comic->id]) }}">Dettagli</a>
+                            <a class="btn btn-warning"
+                                href="{{ route('comics.edit', ['comic' => $comic->id]) }}">Modifica</a>
+                            <form action="{{ route('comics.destroy', ['comic' => $comic->id]) }}" class="d-inline-block"
+                                method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger"">Elimina</button>

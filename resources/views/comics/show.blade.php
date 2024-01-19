@@ -1,6 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+    {{-- Messaggio di avvenuta modifica dell'elemento --}}
+    @if (session('edit_message'))
+        <div class="container my-3 w-50 text-center alert alert-success">
+            {{ session('edit_message') }}
+        </div>
+    @endif
+    {{-- /Messaggio di avvenuta modifica dell'elemento --}}
     <div class="container my-4 text-center">
         <h2 class="mb-4">{{ $comic->title }}</h2>
         <img src="{{ $comic->thumb }}" alt="">
